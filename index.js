@@ -145,8 +145,8 @@ async function run() {
         total_amount: paymentData?.totalPrice,
         currency: "BDT",
         tran_id: transactionId, // use unique tran_id for each api call
-        success_url: `http://localhost:5001/payments/success/${transactionId}`,
-        fail_url: `http://localhost:5001/payments/fail/${transactionId}`,
+        success_url: `https://la-riveria-resort-server-api.vercel.app/payments/success/${transactionId}`,
+        fail_url: `https://la-riveria-resort-server-api.vercel.app/payments/fail/${transactionId}`,
         cancel_url: "http://localhost:3030/cancel",
         ipn_url: "http://localhost:3030/ipn",
         shipping_method: "Courier",
