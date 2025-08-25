@@ -55,8 +55,15 @@ async function run() {
 
     // Users API
     app.get("/users", async (req, res) => {
-      const result = await usersCollection.find().toArray();
-      res.send(result);
+      let query = {};
+      if (req.query.email) {
+        query = { email: req.query.email };
+        const result = await usersCollection.find(query).toArray();
+        res.send(result);
+      } else {
+        const result = await usersCollection.find().toArray();
+        res.send(result);
+      }
     });
 
     app.post("/users", async (req, res) => {
